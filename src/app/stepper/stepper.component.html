@@ -26,7 +26,7 @@
     </form>
   </mat-step>
   <!-- #docregion label -->
-  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+  <mat-step [stepControl]="secondFormGroup" label="Пройдите электронную регистрацию">
     <!-- #enddocregion label -->
     <form [formGroup]="secondFormGroup">
       <div class="check">
@@ -43,10 +43,8 @@
           <button mat-raised-button color="primary" matStepperNext>Далее</button>
         </div>
       </div>
-
     </form>
-    <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" height="600px" >
-    </iframe>
+    <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" height="600px"></iframe>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Завершить</ng-template>

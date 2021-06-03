@@ -7,8 +7,8 @@
 }
 
 .check {
-  position: fixed;
-  bottom: 50px;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 mat-form-field {
