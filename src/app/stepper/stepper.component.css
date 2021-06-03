@@ -1,0 +1,20 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.check {
+  position: fixed;
+  bottom: 50px;
+}
+
+mat-form-field {
+  min-width: 400px;
+}
+
+button {
+  margin-right: 10px;
+}

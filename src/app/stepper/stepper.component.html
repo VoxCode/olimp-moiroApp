@@ -1,1 +1,59 @@
-<p>stepper works!</p>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Регистрация в Moodle</ng-template>
+      <h2>Для регистрации в системе дистанционного
+        обучения института необходимо пройти по ссылке
+        <a href="http://minsk.moiro.by/moodle/login/index.php" target="_blank">Ссылка</a>,
+        выбрать «Создать учетную запись», заполнить электронную форму.
+        В случае успешной регистрации на указанный электронный адрес участника
+        высылается ссылка для активации доступа к системе.
+      </h2>
+      <div class="check">
+        <mat-form-field>
+          <mat-checkbox matInput  formControlName="first" required>Зарегистрировались</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Подтвердили почту</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Все гуд</mat-checkbox>
+          <label>
+            <input matInput hidden formControlName="third"  required>
+          </label>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary"  matStepperNext>Далее</button>
+        </div>
+      </div>
+
+    </form>
+  </mat-step>
+  <!-- #docregion label -->
+  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <!-- #enddocregion label -->
+    <form [formGroup]="secondFormGroup">
+      <div class="check">
+        <mat-form-field>
+          <mat-checkbox matInput  formControlName="first" required>Зарегистрировались</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Подтвердили почту</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Все гуд</mat-checkbox>
+          <label>
+            <input matInput hidden formControlName="third"  required>
+          </label>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Назад</button>
+          <button mat-raised-button color="primary" matStepperNext>Далее</button>
+        </div>
+      </div>
+
+    </form>
+    <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" height="600px" >
+    </iframe>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Завершить</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Назад</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
