@@ -9,6 +9,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {StepperComponent} from "./stepper/stepper.component";
 import {StepperModule} from "./stepper/stepper.module";
 import {AppComponent} from "./app.component";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import {AppComponent} from "./app.component";
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    CookieService
   ]
 })
 export class AppModule { }

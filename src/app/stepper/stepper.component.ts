@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-stepper',
@@ -21,7 +22,8 @@ export class StepperComponent implements OnInit {
   });
 
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private cookieService: CookieService) {
+  }
 
   ngOnInit() {
 

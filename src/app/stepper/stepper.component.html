@@ -22,7 +22,6 @@
           <button mat-raised-button color="primary"  matStepperNext>Далее</button>
         </div>
       </div>
-
     </form>
   </mat-step>
   <!-- #docregion label -->
@@ -31,9 +30,9 @@
     <form [formGroup]="secondFormGroup">
       <div class="check">
         <mat-form-field>
-          <mat-checkbox matInput  formControlName="first" required>Зарегистрировались</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="second" required>Подтвердили почту</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="third" required>Все гуд</mat-checkbox>
+          <mat-checkbox matInput  formControlName="first" required>Нажали вход</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Заполнили данные и прикрепили платежку</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Получили парольное слово</mat-checkbox>
           <label>
             <input matInput hidden formControlName="third"  required>
           </label>
@@ -48,10 +47,8 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Завершить</ng-template>
-    <p>You are now done.</p>
+    <h1>Спасибо что Вы у нас такие самостоятельные!</h1>
     <div>
-      <button mat-button matStepperPrevious>Назад</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
