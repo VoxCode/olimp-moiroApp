@@ -12,9 +12,40 @@
 }
 
 mat-form-field {
-  min-width: 400px;
+  min-width: 600px;
 }
 
 button {
   margin-right: 10px;
+}
+h1 {
+  font-family: "Times New Roman";
+}
+
+li {
+  font-weight: bold;
+  font-size: large;
+  margin: 25px;
+  line-height: 1.5;
+  font-family: "Times New Roman";
+}
+li span {
+  font-weight: normal;
+  font-size: large;
+  line-height: 1.5;
+  font-family: "Times New Roman";
+}
+
+ul li {
+  font-weight: bold;
+  font-size: large;
+  margin: 5px;
+  line-height: 1.5;
+  font-family: "Times New Roman";
+}
+
+p {
+  font-weight: bold;
+  font-size: x-large;
+  font-family: "Times New Roman";
 }

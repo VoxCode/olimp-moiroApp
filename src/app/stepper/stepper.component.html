@@ -1,19 +1,62 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <!--  Step 1-->
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Регистрация в Moodle</ng-template>
-      <h2>Для регистрации в системе дистанционного
-        обучения института необходимо пройти по ссылке
-        <a href="http://minsk.moiro.by/moodle/login/index.php" target="_blank">Ссылка</a>,
-        выбрать «Создать учетную запись», заполнить электронную форму.
-        В случае успешной регистрации на указанный электронный адрес участника
-        высылается ссылка для активации доступа к системе.
-      </h2>
+      <ng-template matStepLabel>Информация по регистрации на олимпиаду</ng-template>
+      <h1><b>Информация по регистрации на олимпиаду</b></h1>
+      <ol>
+        <li>Регистрация в СДО Moodle<br> <span>«Создать учетную запись» или «Войти в Вашу учетную запись». </span><br>
+          <span><i><b>Логин и пароль для входа в СДО Moodle необходимо запомнить!</b></i></span>
+        </li>
+        <li>Электронная регистрация <span>с прикреплением оплаты</span><br>
+          <ul>
+            <li><span>Заполнить анкету</span></li>
+            <li><span>Прикрепить платеж</span></li>
+            <li><span>Запомнить парольное слово</span></li>
+          </ul>
+        </li>
+        <li>Запись на олимпиаду<br> <span>Запись на соответствующую олимпиаду с использованием парольного слова</span> </li>
+      </ol>
+
+      <p>Необходимо отмечать выполнение действий на каждом этапе, чтобы перейдти к следующему.</p>
+      <p>Тел. техподдержки: <a href="tel:80172014393">8(017)201-43-93</a></p>
+
+      <hr>
       <div class="check">
         <mat-form-field>
-          <mat-checkbox matInput  formControlName="first" required>Зарегистрировались</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="second" required>Подтвердили почту</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="third" required>Все гуд</mat-checkbox>
+          <mat-checkbox matInput  formControlName="first" required>Я прочитал/прочитала информацию по регистрации на олимпиаду</mat-checkbox>
+          <label>
+            <input matInput hidden formControlName="first"  required>
+          </label>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary"  matStepperNext>Далее</button>
+        </div>
+      </div>
+    </form>
+
+  </mat-step>
+<!--  Step 2-->
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Регистрация в СДО Moodle</ng-template>
+      <h1><b>Регистрация в СДО Moodle</b></h1>
+      <h2>Выберите один из пунктов</h2>
+      <mat-checkbox [disabled]="isAuth" (change)="changeIsReg()">Создать учетную запись</mat-checkbox><br>
+      <mat-checkbox [disabled]="isReg" (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-checkbox><br>
+
+      <iframe *ngIf="isReg && !isAuth" src="http://minsk.moiro.by/moodle/login/signup.php?" width="100%" frameborder="none" height="600px"></iframe>
+      <iframe *ngIf="!isReg && isAuth" src="http://minsk.moiro.by/moodle/login/index.php" width="100%" frameborder="none" height="600px"></iframe>
+      <br>
+      <p>Тел. техподдержки: <a href="tel:80172014393">8(017)201-43-93</a></p>
+
+      <hr>
+      <div class="check">
+        <mat-form-field>
+          <mat-checkbox matInput  formControlName="first" required>Создали учетную запись</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Подтвердили регистрацию перейдя по ссылке на вашей почте</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Запомнили свои данные для дальнейшего использования</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="fourth" required>Вошли в систему</mat-checkbox>
           <label>
             <input matInput hidden formControlName="third"  required>
           </label>
@@ -23,18 +66,22 @@
         </div>
       </div>
     </form>
+
   </mat-step>
-  <!-- #docregion label -->
-  <mat-step [stepControl]="secondFormGroup" label="Пройдите электронную регистрацию">
+  <!--  Step 3-->
+  <mat-step [stepControl]="thirdFormGroup" label="Пройдите электронную регистрацию">
     <!-- #enddocregion label -->
-    <form [formGroup]="secondFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" frameborder="none" height="600px"></iframe>
+      <hr>
       <div class="check">
         <mat-form-field>
-          <mat-checkbox matInput  formControlName="first" required>Нажали вход</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="second" required>Заполнили данные и прикрепили платежку</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="third" required>Получили парольное слово</mat-checkbox>
+          <mat-checkbox matInput  formControlName="first" required>Нажали "Регистрация" на необходимой олимпиаде</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Ввели логин и пароль (написаны красным)</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Заполнили поля и прикрепили платежку</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="fourth" required>Получили парольное слово</mat-checkbox>
           <label>
-            <input matInput hidden formControlName="third"  required>
+            <input matInput hidden formControlName="fifth" required>
           </label>
         </mat-form-field>
         <div>
@@ -43,8 +90,30 @@
         </div>
       </div>
     </form>
-    <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" height="600px"></iframe>
   </mat-step>
+  <!--  Step 4-->
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Записаться на олимпиаду в Moodle</ng-template>
+      <iframe src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4" width="100%" frameborder="none" height="600px"></iframe>
+      <hr>
+      <div class="check">
+        <mat-form-field>
+          <mat-checkbox matInput  formControlName="first" required>Записались на олимпиаду</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Ввели парольное слово</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Все гуд</mat-checkbox>
+          <label>
+            <input matInput hidden formControlName="third"  required>
+          </label>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Назад</button>
+          <button mat-raised-button color="primary"  matStepperNext>Завершить</button>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <!--  Step 5-->
   <mat-step>
     <ng-template matStepLabel>Завершить</ng-template>
     <h1>Спасибо что Вы у нас такие самостоятельные!</h1>
