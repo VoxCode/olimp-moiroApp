@@ -46,8 +46,10 @@
         <li>Заполните электронную форму</li>
         <li>В случае успешной регистрации на указанный электронный адрес участника высылается ссылка для активации доступа к системе</li>
       </ol>
-      <iframe *ngIf="isReg && !isAuth" src="http://minsk.moiro.by/moodle/login/signup.php?" width="100%" frameborder="none" height="600px"></iframe>
-      <iframe *ngIf="!isReg && isAuth" src="http://minsk.moiro.by/moodle/login/index.php" width="100%" frameborder="none" height="600px"></iframe>
+      <div class="frameDiv">
+        <iframe *ngIf="isReg && !isAuth" frameborder="none" src="http://minsk.moiro.by/moodle/login/signup.php?"></iframe>
+        <iframe *ngIf="!isReg && isAuth" frameborder="none" src="http://minsk.moiro.by/moodle/login/index.php"></iframe>
+      </div>
       <br>
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
 
@@ -81,7 +83,11 @@
         <li><span>Заполните анкету и прикрепите платеж</span></li>
         <li><span>Запомните или запишите парольное слово</span></li>
       </ul>
-      <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" frameborder="none" height="600px"></iframe>
+      <div class="frameDiv">
+        <iframe src="http://adm.moiro.by/dofordist/index.php" style="width: 100%" frameborder="none"></iframe>
+      </div>
+
+
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
       <hr>
       <div class="check">
@@ -107,7 +113,10 @@
       <ng-template matStepLabel>Записаться на олимпиаду в Moodle</ng-template>
       <h1><b>Запись на олимпиаду</b></h1>
       <h2>Запишитесь на соответствующую олимпиаду с использованием парольного слова</h2>
-      <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4" width="100%" frameborder="none" height="600px"></iframe>
+      <div class="frameDiv">
+        <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4" frameborder="none"></iframe>
+      </div>
+
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
       <hr>
       <div class="check">

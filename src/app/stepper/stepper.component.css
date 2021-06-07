@@ -9,7 +9,7 @@
 }
 
 mat-vertical-stepper {
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
 .check {
@@ -56,29 +56,47 @@ h1 {
 img {
   width: 20px;
   float: left;
-
   margin-right: 5px
 }
 
+iframe {
+  width: 600px;
+  height: 600px
+}
+
+.frameDiv {
+  overflow-x: scroll;
+  width: 300px
+}
 
 @media screen and (min-width: 768px) {
 
+  mat-vertical-stepper {
+    opacity: 0.95;
+  }
+
+  iframe {
+    width: 100%;
+    height: 600px
+  }
+
+  .frameDiv {
+    overflow-x: scroll;
+    width: 100%
+  }
+
   #textCB {
-    margin-top: 35px
+    margin-top: 30px
   }
 
   img {
-    width: 40px;
+    width: 30px;
     float: left;
     margin-right: 10px
   }
 
-  .ng-tns-c86-0 {
-    opacity: 0.9;
-  }
-
   #ttt {
-    color: #f54a58;
+    color: #d52c76;
   }
 
   mat-checkbox {
