@@ -3,14 +3,14 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Информация по регистрации на олимпиаду</ng-template>
-      <h1><b>Информация по регистрации на олимпиаду</b></h1>
+      <h1><b>Для регистрации пройдите эти шаги:</b></h1>
       <ol>
-        <li>Зарегистрируйтесь в СДО Moodle<br> <span>«Создать учетную запись» или «Войти в Вашу учетную запись»</span><br>
+        <li>Зарегистрируйтесь в СДО Moodle<br>
           <span id="ttt"><i>Логин и пароль для входа в СДО Moodle необходимо запомнить!</i></span>
         </li>
         <li>Пройдите электронную регистрацию <span>с прикреплением оплаты</span><br>
         </li>
-        <li>Запишитесь на олимпиаду<br> <span>Запись на соответствующую олимпиаду с использованием парольного слова</span> </li>
+        <li>Запишитесь на олимпиаду с использованием парольного слова<br></li>
       </ol>
 
       <p>Чтобы перейти к следующему шагу, отметьте выполненные действия.</p>
@@ -54,7 +54,7 @@
         <mat-form-field>
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="first" required>Создали учетную запись</mat-checkbox><br>
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="second" required>Подтвердили регистрацию</mat-checkbox><br>
-          <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="third" required>Запомнили свои данные</mat-checkbox><br>
+          <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="third" required>Запомнили или записали логин и пароль</mat-checkbox><br>
           <mat-checkbox *ngIf="!isReg && isAuth" matInput  formControlName="fourth" required>Вошли в систему</mat-checkbox>
           <label>
             <input matInput hidden formControlName="third"  required>
@@ -74,10 +74,10 @@
     <form [formGroup]="thirdFormGroup">
       <h1><b>Электронная регистрация</b></h1>
       <ul>
-        <li><span>выберите соответствующее мероприятие -> Регистрация</span></li>
-        <li><span>нажмите кнопку гостевой вход</span></li>
-        <li><span>заполните анкету и прикрепите платеж</span></li>
-        <li><span>запомните или запишите парольное слово</span></li>
+        <li><span>Выберите соответствующее мероприятие -> Регистрация</span></li>
+        <li><span>Нажмите кнопку гостевой вход</span></li>
+        <li><span>Заполните анкету и прикрепите платеж</span></li>
+        <li><span>Запомните или запишите парольное слово</span></li>
       </ul>
       <iframe src="http://adm.moiro.by/dofordist/index.php" width="100%" frameborder="none" height="600px"></iframe>
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
@@ -85,7 +85,7 @@
       <div class="check">
         <mat-form-field>
           <mat-checkbox matInput  formControlName="first" required>Нажали "Регистрация"</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="second" required>Нажали гостевой вход</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Нажали "Гостевой вход"</mat-checkbox><br>
           <mat-checkbox matInput  formControlName="third" required>Заполнили поля и прикрепили платежку</mat-checkbox><br>
           <mat-checkbox matInput  formControlName="fourth" required>Получили парольное слово</mat-checkbox>
           <label>
