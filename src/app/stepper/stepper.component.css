@@ -1,9 +1,15 @@
-.mat-stepper-horizontal {
-  margin-top: 8px;
+.mat-stepper-vertical {
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 20px;
 }
 
 .mat-form-field {
   margin-top: 16px;
+}
+
+mat-vertical-stepper {
+  opacity: 0.95;
 }
 
 .check {
@@ -12,40 +18,74 @@
 }
 
 mat-form-field {
-  min-width: 600px;
+  min-width: 300px;
 }
 
 button {
   margin-right: 10px;
 }
+
+mat-checkbox {
+  font-size: x-small;
+  width: 100px;
+  word-wrap: break-word;
+}
+
+h2 {
+  font-size: medium;
+}
+
 h1 {
-  font-family: "Times New Roman";
+  font-size: large;
 }
 
-li {
-  font-weight: bold;
-  font-size: large;
-  margin: 25px;
-  line-height: 1.5;
-  font-family: "Times New Roman";
-}
-li span {
-  font-weight: normal;
-  font-size: large;
-  line-height: 1.5;
-  font-family: "Times New Roman";
+#ttt {
+  color: #f54a58;
 }
 
-ul li {
-  font-weight: bold;
-  font-size: large;
-  margin: 5px;
-  line-height: 1.5;
-  font-family: "Times New Roman";
-}
 
-p {
-  font-weight: bold;
-  font-size: x-large;
-  font-family: "Times New Roman";
+@media screen and (min-width: 768px) {
+
+  .ng-tns-c86-0 {
+    opacity: 0.9;
+  }
+
+  #ttt {
+    color: #f54a58;
+  }
+
+  mat-checkbox {
+    font-size: medium;
+    width: 100px;
+    word-wrap: break-word;
+  }
+
+  mat-form-field {
+    min-width: 600px;
+  }
+
+  li {
+    font-weight: bold;
+    font-size: large;
+    margin: 25px;
+    line-height: 1.5;
+  }
+  li span {
+    font-weight: normal;
+    font-size: large;
+    line-height: 1.5;
+  }
+
+  ul li {
+    font-weight: bold;
+    font-size: large;
+    margin: 5px;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: large;
+  }
+
+
 }
