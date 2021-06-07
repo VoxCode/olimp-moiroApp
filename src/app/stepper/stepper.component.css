@@ -31,6 +31,12 @@ mat-checkbox {
   word-wrap: break-word;
 }
 
+mat-radio-button {
+  font-size: x-small;
+  width: 100px;
+  word-wrap: break-word;
+}
+
 h2 {
   font-size: medium;
 }
@@ -55,6 +61,12 @@ h1 {
   }
 
   mat-checkbox {
+    font-size: medium;
+    width: 100px;
+    word-wrap: break-word;
+  }
+
+  mat-radio-button {
     font-size: medium;
     width: 100px;
     word-wrap: break-word;
