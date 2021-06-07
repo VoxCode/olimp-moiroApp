@@ -12,8 +12,10 @@
         </li>
         <li>Запишитесь на олимпиаду с использованием парольного слова<br></li>
       </ol>
+      <img src="../../assets/CheckBox.gif">
+      <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия.</p><br>
 
-      <p>Чтобы перейти к следующему шагу, отметьте выполненные действия.</p>
+
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
 
       <hr>
@@ -31,14 +33,14 @@
     </form>
 
   </mat-step>
-<!--  Step 2-->
+  <!--  Step 2-->
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Регистрация в СДО Moodle</ng-template>
       <h1><b>Регистрация в СДО Moodle</b></h1>
       <h2>Выберите один из пунктов:</h2>
-      <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br>
-      <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br>
+      <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
+      <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
 
       <ol *ngIf="isReg && !isAuth">
         <li>Заполните электронную форму</li>

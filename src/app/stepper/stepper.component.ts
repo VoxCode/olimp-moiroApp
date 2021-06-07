@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -6,7 +6,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.css']
 })
-export class StepperComponent {
+export class StepperComponent implements OnInit{
   isLinear = true;
   isReg = false;
   isAuth = false;
@@ -35,6 +35,11 @@ export class StepperComponent {
 
 
   constructor(private _formBuilder: FormBuilder) {
+  }
+
+  ngOnInit(): void {
+    this.isReg = false;
+    this.isAuth = false;
   }
 
   changeIsAuth(): void {

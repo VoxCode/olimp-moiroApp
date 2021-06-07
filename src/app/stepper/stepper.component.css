@@ -46,11 +46,32 @@ h1 {
 }
 
 #ttt {
-  color: #f54a58;
+  color: #d52c76;
+}
+
+#textCB {
+
+}
+
+img {
+  width: 20px;
+  float: left;
+
+  margin-right: 5px
 }
 
 
 @media screen and (min-width: 768px) {
+
+  #textCB {
+    margin-top: 35px
+  }
+
+  img {
+    width: 40px;
+    float: left;
+    margin-right: 10px
+  }
 
   .ng-tns-c86-0 {
     opacity: 0.9;
