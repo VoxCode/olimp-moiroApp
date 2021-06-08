@@ -1,4 +1,5 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper [linear]="isLinear">
+
   <!--  Step 1-->
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
@@ -12,12 +13,9 @@
         </li>
         <li>Запишитесь на олимпиаду с использованием парольного слова<br></li>
       </ol>
-      <img src="../../assets/CheckBox.gif">
+      <img src="../../assets/CheckBox.gif" alt="check">
       <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия.</p><br>
-
-
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
-
       <hr>
       <div class="check">
         <mat-form-field>
@@ -31,8 +29,8 @@
         </div>
       </div>
     </form>
-
   </mat-step>
+
   <!--  Step 2-->
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
@@ -41,17 +39,15 @@
       <h2>Выберите один из пунктов:</h2>
       <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
       <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
-
       <ol *ngIf="isReg && !isAuth">
         <li>Заполните электронную форму</li>
         <li>В случае успешной регистрации на указанный электронный адрес участника высылается ссылка для активации доступа к системе</li>
       </ol>
       <div class="frameDiv">
-        <iframe *ngIf="isReg && !isAuth" frameborder="none" src="http://minsk.moiro.by/moodle/login/signup.php?"></iframe>
-        <iframe *ngIf="!isReg && isAuth" frameborder="none" src="http://minsk.moiro.by/moodle/login/index.php"></iframe>
+        <iframe *ngIf="isReg && !isAuth" src="http://minsk.moiro.by/moodle/login/signup.php?"></iframe>
+        <iframe *ngIf="!isReg && isAuth" src="http://minsk.moiro.by/moodle/login/index.php"></iframe>
       </div><br>
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
-
       <hr>
       <div class="check">
         <mat-form-field *ngIf="(isReg && !isAuth) || (!isReg && isAuth)">
@@ -69,11 +65,10 @@
         </div>
       </div>
     </form>
-
   </mat-step>
+
   <!--  Step 3-->
   <mat-step [stepControl]="thirdFormGroup" label="Пройдите электронную регистрацию">
-    <!-- #enddocregion label -->
     <form [formGroup]="thirdFormGroup">
       <h1><b>Электронная регистрация</b></h1>
       <ul>
@@ -84,13 +79,10 @@
         <li><span>Нажмите «Сохранить»</span></li>
         <li><span>Запомните или запишите парольное слово</span></li>
         <span class="ttt"><i>(отображается после нажатия «Сохранить»)</i></span>
-
       </ul>
       <div class="frameDiv">
-        <iframe src="http://adm.moiro.by/dofordist/index.php" style="width: 100%" frameborder="none"></iframe>
+        <iframe src="http://adm.moiro.by/dofordist/index.php" style="width: 100%"></iframe>
       </div><br>
-
-
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
       <hr>
       <div class="check">
@@ -111,6 +103,7 @@
       </div>
     </form>
   </mat-step>
+
   <!--  Step 4-->
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
@@ -118,9 +111,8 @@
       <h1><b>Запись на олимпиаду</b></h1>
       <h2>Запишитесь на соответствующую олимпиаду с использованием парольного слова</h2>
       <div class="frameDiv">
-        <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4" frameborder="none"></iframe>
+        <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4"></iframe>
       </div><br>
-
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
       <hr>
       <div class="check">
@@ -137,6 +129,7 @@
       </div>
     </form>
   </mat-step>
+
   <!--  Step 5-->
   <mat-step>
     <ng-template matStepLabel>Завершить</ng-template>
