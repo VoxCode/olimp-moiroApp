@@ -10,6 +10,7 @@ import {StepperComponent} from "./stepper/stepper.component";
 import {StepperModule} from "./stepper/stepper.module";
 import {AppComponent} from "./app.component";
 import {CookieService} from "ngx-cookie-service";
+import {MatVerticalStepperScrollerDirective} from "./stepper/matVerticalStepperScrollerDirective";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {CookieService} from "ngx-cookie-service";
   entryComponents: [AppComponent],
   declarations: [
     AppComponent,
-    StepperComponent
+    StepperComponent,
+    MatVerticalStepperScrollerDirective
   ],
   bootstrap: [AppComponent],
   providers: [
