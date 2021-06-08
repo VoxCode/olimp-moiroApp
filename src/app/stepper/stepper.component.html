@@ -5,10 +5,10 @@
       <ng-template matStepLabel>Информация по регистрации на олимпиаду</ng-template>
       <h1><b>Для регистрации пройдите эти шаги:</b></h1>
       <ol>
-        <li>Зарегистрируйтесь в СДО Moodle<br>
-          <span id="ttt"><i>Логин и пароль для входа в СДО Moodle необходимо запомнить!</i></span>
+        <li>Зарегистрируйтесь в СДО МОИРО<br>
+          <span class="ttt"><i>Логин и пароль для входа в СДО МОИРО необходимо запомнить!</i></span>
         </li>
-        <li>Пройдите электронную регистрацию <span>с прикреплением оплаты</span><br>
+        <li>Пройдите электронную регистрацию с прикреплением оплаты<br>
         </li>
         <li>Запишитесь на олимпиаду с использованием парольного слова<br></li>
       </ol>
@@ -16,7 +16,7 @@
       <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия.</p><br>
 
 
-      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
+      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
 
       <hr>
       <div class="check">
@@ -36,8 +36,8 @@
   <!--  Step 2-->
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Регистрация в СДО Moodle</ng-template>
-      <h1><b>Регистрация в СДО Moodle</b></h1>
+      <ng-template matStepLabel>Регистрация в СДО МОИРО</ng-template>
+      <h1><b>Регистрация в СДО МОИРО</b></h1>
       <h2>Выберите один из пунктов:</h2>
       <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
       <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
@@ -49,17 +49,16 @@
       <div class="frameDiv">
         <iframe *ngIf="isReg && !isAuth" frameborder="none" src="http://minsk.moiro.by/moodle/login/signup.php?"></iframe>
         <iframe *ngIf="!isReg && isAuth" frameborder="none" src="http://minsk.moiro.by/moodle/login/index.php"></iframe>
-      </div>
-      <br>
-      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
+      </div><br>
+      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
 
       <hr>
       <div class="check">
-        <mat-form-field>
+        <mat-form-field *ngIf="(isReg && !isAuth) || (!isReg && isAuth)">
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="first" required>Создали учетную запись</mat-checkbox><br>
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="second" required>Подтвердили регистрацию</mat-checkbox><br>
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="third" required>Запомнили или записали логин и пароль</mat-checkbox><br>
-          <mat-checkbox *ngIf="!isReg && isAuth" matInput  formControlName="fourth" required>Вошли в систему</mat-checkbox>
+          <mat-checkbox *ngIf="!isReg && isAuth" matInput  formControlName="fourth" required>Вошли в учетную запись</mat-checkbox>
           <label>
             <input matInput hidden formControlName="third"  required>
           </label>
@@ -79,25 +78,30 @@
       <h1><b>Электронная регистрация</b></h1>
       <ul>
         <li><span>Выберите соответствующее мероприятие -> Регистрация</span></li>
-        <li><span>Нажмите кнопку гостевой вход</span></li>
-        <li><span>Заполните анкету и прикрепите платеж</span></li>
+        <li><span>Нажмите «Гостевой вход»</span></li>
+        <li><span>Заполните анкету</span></li>
+        <li><span>Нажмите «Выберите файл и прикрепите платеж»</span></li>
+        <li><span>Нажмите «Сохранить»</span></li>
         <li><span>Запомните или запишите парольное слово</span></li>
+        <span class="ttt"><i>(отображается после нажатия «Сохранить»)</i></span>
+
       </ul>
       <div class="frameDiv">
         <iframe src="http://adm.moiro.by/dofordist/index.php" style="width: 100%" frameborder="none"></iframe>
-      </div>
+      </div><br>
 
 
-      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
+      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
       <hr>
       <div class="check">
         <mat-form-field>
-          <mat-checkbox matInput  formControlName="first" required>Нажали "Регистрация"</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="second" required>Нажали "Гостевой вход"</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="third" required>Заполнили поля и прикрепили платежку</mat-checkbox><br>
-          <mat-checkbox matInput  formControlName="fourth" required>Получили парольное слово</mat-checkbox>
+          <mat-checkbox matInput  formControlName="first" required>Нажали «Регистрация»</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="second" required>Нажали «Гостевой вход»</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="third" required>Заполнили поля и прикрепили платеж</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="fourth" required>Сохранили анкету</mat-checkbox><br>
+          <mat-checkbox matInput  formControlName="fifth" required>Получили парольное слово</mat-checkbox>
           <label>
-            <input matInput hidden formControlName="fourth" required>
+            <input matInput hidden formControlName="fifth" required>
           </label>
         </mat-form-field>
         <div>
@@ -110,14 +114,14 @@
   <!--  Step 4-->
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
-      <ng-template matStepLabel>Записаться на олимпиаду в Moodle</ng-template>
+      <ng-template matStepLabel>Записаться на олимпиаду в СДО МОИРО</ng-template>
       <h1><b>Запись на олимпиаду</b></h1>
       <h2>Запишитесь на соответствующую олимпиаду с использованием парольного слова</h2>
       <div class="frameDiv">
         <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4" frameborder="none"></iframe>
-      </div>
+      </div><br>
 
-      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a></p>
+      <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
       <hr>
       <div class="check">
         <mat-form-field>

@@ -45,7 +45,7 @@ h1 {
   font-size: large;
 }
 
-#ttt {
+.ttt {
   color: #d52c76;
 }
 
@@ -95,8 +95,9 @@ iframe {
     margin-right: 10px
   }
 
-  #ttt {
+  .ttt {
     color: #d52c76;
+    font-size: large;
   }
 
   mat-checkbox {

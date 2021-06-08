@@ -26,7 +26,8 @@ export class StepperComponent implements OnInit{
     first: new FormControl(false, Validators.requiredTrue),
     second: new FormControl(false, Validators.requiredTrue),
     third: new FormControl(false, Validators.requiredTrue),
-    fourth: new FormControl(false, Validators.requiredTrue)
+    fourth: new FormControl(false, Validators.requiredTrue),
+    fifth: new FormControl(false, Validators.requiredTrue)
   });
 
   public fourthFormGroup: FormGroup = new FormGroup({
