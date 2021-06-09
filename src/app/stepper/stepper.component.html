@@ -4,7 +4,7 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Действия для записи на олимпиаду</ng-template>
-      <h1><b>Для записи на олимпиаду пройдите эти шаги:</b></h1>
+      <h1>Для записи на олимпиаду пройдите эти шаги:</h1>
       <ol>
         <li>Создайте учетную запись/войдите в СДО МОИРО<br>
         </li>
@@ -13,7 +13,7 @@
         <li>Запишитесь на олимпиаду с использованием парольного слова<br></li>
       </ol>
       <img src="../../assets/CheckBox.gif" alt="check">
-      <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия и нажмите кнопку далее</p><br>
+      <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия и нажмите кнопку «Далее»</p><br>
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
       <hr>
       <div class="check">
@@ -34,12 +34,13 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Создание учетной записи/вход в СДО МОИРО</ng-template>
-      <h2>Выберите один из пунктов:</h2>
+      <h1>Выберите один из пунктов:</h1>
       <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
       <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
       <ol *ngIf="isReg && !isAuth">
         <li>Заполните электронную форму<span class="ttt"> <i> (логин и пароль для входа в СДО МОИРО необходимо запомнить!)</i></span></li>
-        <li>В случае успешной регистрации на указанный электронный адрес участника высылается ссылка для активации доступа к системе</li>
+        <i><span>В случае успешной регистрации на указанный электронный адрес высылается ссылка для активации учетной записи</span></i>
+        <li>Перейдите в электронную почту и активируйте Вашу учетную запись</li>
       </ol>
       <div class="frameDiv">
         <iframe *ngIf="isReg && !isAuth" src="http://minsk.moiro.by/moodle/login/signup.php?"></iframe>
@@ -50,7 +51,7 @@
       <div class="check">
         <mat-form-field *ngIf="(isReg && !isAuth) || (!isReg && isAuth)">
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="first" required>Создали учетную запись</mat-checkbox><br>
-          <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="second" required>Подтвердили регистрацию</mat-checkbox><br>
+          <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="second" required>Подтвердили учетную запись</mat-checkbox><br>
           <mat-checkbox *ngIf="isReg && !isAuth" matInput  formControlName="third" required>Запомнили или записали логин и пароль</mat-checkbox><br>
           <mat-checkbox *ngIf="!isReg && isAuth" matInput  formControlName="fourth" required>Вошли в учетную запись</mat-checkbox>
           <label>
@@ -68,15 +69,15 @@
   <!--  Step 3-->
   <mat-step [stepControl]="thirdFormGroup" label="Электронная регистрация">
     <form [formGroup]="thirdFormGroup">
-      <ul>
+      <ol>
         <li><span>Выберите соответствующее мероприятие -> Регистрация</span></li>
         <li><span>Нажмите «Гостевой вход»</span></li>
         <li><span>Заполните анкету</span></li>
         <li><span>Нажмите «Выберите файл и прикрепите платеж»</span></li>
         <li><span>Нажмите «Сохранить»</span></li>
-        <li><span>Запомните или запишите парольное слово</span></li>
-        <span class="ttt"><i>(отображается после нажатия «Сохранить»)</i></span>
-      </ul>
+        <li><span>Запомните или запишите парольное слово</span><span class="ttt"><i> (отображается после нажатия «Сохранить»)</i></span></li>
+
+      </ol>
       <div class="frameDiv">
         <iframe src="http://adm.moiro.by/dofordist/index.php" style="width: 100%"></iframe>
       </div><br>
@@ -105,7 +106,7 @@
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Запись на олимпиаду в СДО МОИРО</ng-template>
-      <h2>Запишитесь на соответствующую олимпиаду с использованием парольного слова</h2>
+      <h1>Запишитесь на соответствующую олимпиаду с использованием парольного слова</h1>
       <div class="frameDiv">
         <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4"></iframe>
       </div><br>
@@ -120,7 +121,7 @@
         </mat-form-field>
         <div>
           <button mat-raised-button color="primary" matStepperPrevious>Назад</button>
-          <button mat-raised-button color="primary" [disabled]="fourthFormGroup.invalid" matStepperNext>Завершить</button>
+          <button mat-raised-button color="primary" [disabled]="fourthFormGroup.invalid" matStepperNext>Далее</button>
         </div>
       </div>
     </form>
@@ -128,8 +129,8 @@
 
   <!--  Step 5-->
   <mat-step>
-    <ng-template matStepLabel>Завершить</ng-template>
-    <h1>Регистрация прошла успешно!</h1>
+    <ng-template matStepLabel>Завершение записи</ng-template>
+    <h1>Вы успешно записались на олимпиаду!</h1>
     <div>
     </div>
   </mat-step>

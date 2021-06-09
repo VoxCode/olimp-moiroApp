@@ -42,11 +42,11 @@ h2 {
 }
 
 h1 {
-  font-size: large;
+  font-size: medium;
 }
 
 .ttt {
-  color: #d52c76;
+  color: #f54484;
 }
 
 #textCB {
@@ -70,7 +70,20 @@ iframe {
   width: 300px
 }
 
-@media screen and (min-width: 768px) {
+span {
+  font-size: small;
+}
+
+@media screen and (min-width: 640px) {
+
+  span {
+    font-size: medium;
+  }
+
+  h1 {
+    margin-top: 10px;
+    font-size: x-large;
+  }
 
   mat-step-header{
     display: flex ;
@@ -124,22 +137,20 @@ iframe {
   }
 
   li {
-    font-weight: bold;
     font-size: large;
     margin: 25px;
-    line-height: 1.5;
+
   }
   li span {
     font-weight: normal;
     font-size: large;
-    line-height: 1.5;
+
   }
 
   ul li {
-    font-weight: bold;
     font-size: large;
     margin: 5px;
-    line-height: 1.5;
+
   }
 
   p {
