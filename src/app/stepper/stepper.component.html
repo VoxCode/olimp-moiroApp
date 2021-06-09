@@ -3,18 +3,17 @@
   <!--  Step 1-->
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Информация по регистрации на олимпиаду</ng-template>
-      <h1><b>Для регистрации пройдите эти шаги:</b></h1>
+      <ng-template matStepLabel>Действия для записи на олимпиаду</ng-template>
+      <h1><b>Для записи на олимпиаду пройдите эти шаги:</b></h1>
       <ol>
-        <li>Зарегистрируйтесь в СДО МОИРО<br>
-          <span class="ttt"><i>Логин и пароль для входа в СДО МОИРО необходимо запомнить!</i></span>
+        <li>Создайте учетную запись/войдите в СДО МОИРО<br>
         </li>
         <li>Пройдите электронную регистрацию с прикреплением оплаты<br>
         </li>
         <li>Запишитесь на олимпиаду с использованием парольного слова<br></li>
       </ol>
       <img src="../../assets/CheckBox.gif" alt="check">
-      <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия.</p><br>
+      <p id="textCB">Чтобы перейти к следующему шагу, отметьте выполненные действия и нажмите кнопку далее</p><br>
       <p>Есть вопросы? <a href="tel:80172014393">8(017)201-43-93</a> (техподдержка)</p>
       <hr>
       <div class="check">
@@ -25,7 +24,7 @@
           </label>
         </mat-form-field>
         <div>
-          <button mat-raised-button color="primary"  matStepperNext>Далее</button>
+          <button mat-raised-button color="primary" [disabled]="firstFormGroup.invalid" matStepperNext>Далее</button>
         </div>
       </div>
     </form>
@@ -34,13 +33,12 @@
   <!--  Step 2-->
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Регистрация в СДО МОИРО</ng-template>
-      <h1><b>Регистрация в СДО МОИРО</b></h1>
+      <ng-template matStepLabel>Создание учетной записи/вход в СДО МОИРО</ng-template>
       <h2>Выберите один из пунктов:</h2>
       <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
       <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
       <ol *ngIf="isReg && !isAuth">
-        <li>Заполните электронную форму</li>
+        <li>Заполните электронную форму<span class="ttt"> <i> (логин и пароль для входа в СДО МОИРО необходимо запомнить!)</i></span></li>
         <li>В случае успешной регистрации на указанный электронный адрес участника высылается ссылка для активации доступа к системе</li>
       </ol>
       <div class="frameDiv">
@@ -61,16 +59,15 @@
         </mat-form-field>
         <div>
           <button mat-raised-button color="primary" matStepperPrevious>Назад</button>
-          <button mat-raised-button color="primary"  matStepperNext>Далее</button>
+          <button mat-raised-button color="primary" [disabled]="secondFormGroup.invalid" matStepperNext>Далее</button>
         </div>
       </div>
     </form>
   </mat-step>
 
   <!--  Step 3-->
-  <mat-step [stepControl]="thirdFormGroup" label="Пройдите электронную регистрацию">
+  <mat-step [stepControl]="thirdFormGroup" label="Электронная регистрация">
     <form [formGroup]="thirdFormGroup">
-      <h1><b>Электронная регистрация</b></h1>
       <ul>
         <li><span>Выберите соответствующее мероприятие -> Регистрация</span></li>
         <li><span>Нажмите «Гостевой вход»</span></li>
@@ -98,7 +95,7 @@
         </mat-form-field>
         <div>
           <button mat-raised-button color="primary" matStepperPrevious>Назад</button>
-          <button (click)="ste()" mat-raised-button color="primary" matStepperNext>Далее</button>
+          <button (click)="ste()" mat-raised-button [disabled]="thirdFormGroup.invalid" color="primary" matStepperNext>Далее</button>
         </div>
       </div>
     </form>
@@ -107,8 +104,7 @@
   <!--  Step 4-->
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
-      <ng-template matStepLabel>Записаться на олимпиаду в СДО МОИРО</ng-template>
-      <h1><b>Запись на олимпиаду</b></h1>
+      <ng-template matStepLabel>Запись на олимпиаду в СДО МОИРО</ng-template>
       <h2>Запишитесь на соответствующую олимпиаду с использованием парольного слова</h2>
       <div class="frameDiv">
         <iframe *ngIf="st" src="http://minsk.moiro.by/moodle/course/index.php?categoryid=4"></iframe>
@@ -124,7 +120,7 @@
         </mat-form-field>
         <div>
           <button mat-raised-button color="primary" matStepperPrevious>Назад</button>
-          <button mat-raised-button color="primary"  matStepperNext>Завершить</button>
+          <button mat-raised-button color="primary" [disabled]="fourthFormGroup.invalid" matStepperNext>Завершить</button>
         </div>
       </div>
     </form>

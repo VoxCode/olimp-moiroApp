@@ -72,6 +72,11 @@ iframe {
 
 @media screen and (min-width: 768px) {
 
+  mat-step-header{
+    display: flex ;
+    justify-content: flex-end ;
+  }
+
   mat-vertical-stepper {
     opacity: 0.95;
   }
