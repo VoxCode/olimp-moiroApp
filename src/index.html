@@ -11,6 +11,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
+<script>
+  if(/*@cc_on!@*/!!document.documentMode) //IF IE
+  {
+    document.body.innerHTML = '<div class="errorIE">' +
+      '<h1 id="errorIEText">' +
+      'Ваш браузер не поддерживается! Используйте ' +
+      '<a href="https://www.google.by/chrome/">Google Chrome</a>, ' +
+      '<a href="https://browser.yandex.by/">Яндекс</a>, ' +
+      '<a href="https://www.opera.com/ru">Opera</a>, ' +
+      '<a href="https://www.mozilla.org/ru/firefox/new/">Mozilla Firefox</a>' +
+      '</h1>' +
+      '</div>';
+  }
+</script>
   <app-root></app-root>
 </body>
 </html>
