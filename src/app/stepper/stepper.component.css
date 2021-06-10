@@ -66,8 +66,10 @@ iframe {
 }
 
 .frameDiv {
-  overflow-x: scroll;
-  width: 300px
+  overflow-x: auto;
+  width: 100%;
+  border: 1px solid #d7dcde;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.5);
 }
 
 span {
@@ -101,8 +103,9 @@ span {
   }
 
   .frameDiv {
-    overflow-x: scroll;
-    width: 100%
+    overflow-x: auto;
+    width: 100%;
+    border: 2px solid #d7dcde;
   }
 
   #textCB {
@@ -156,6 +159,4 @@ span {
   p {
     font-size: large;
   }
-
-
 }

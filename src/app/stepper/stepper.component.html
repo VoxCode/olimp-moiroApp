@@ -36,13 +36,14 @@
       <ng-template matStepLabel>Создание учетной записи/вход в СДО МОИРО</ng-template>
       <h1>Выберите один из пунктов:</h1>
       <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
-      <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
+      <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br>
       <ol *ngIf="isReg && !isAuth">
         <li>Заполните электронную форму<span class="ttt"> <i> (логин и пароль для входа в СДО МОИРО необходимо запомнить!)</i></span></li>
         <i><span>В случае успешной регистрации на указанный электронный адрес высылается ссылка для активации учетной записи</span></i>
         <li>Перейдите в электронную почту и активируйте Вашу учетную запись</li>
+        <li>Нажмите «Продолжить»</li>
       </ol>
-      <div class="frameDiv">
+      <div class="frameDiv" *ngIf="(isReg && !isAuth) || (!isReg && isAuth)">
         <iframe *ngIf="isReg && !isAuth" src="http://minsk.moiro.by/moodle/login/signup.php?"></iframe>
         <iframe *ngIf="!isReg && isAuth" src="http://minsk.moiro.by/moodle/login/index.php"></iframe>
       </div><br>
@@ -70,12 +71,10 @@
   <mat-step [stepControl]="thirdFormGroup" label="Электронная регистрация">
     <form [formGroup]="thirdFormGroup">
       <ol>
-        <li><span>Выберите соответствующее мероприятие -> Регистрация</span></li>
-        <li><span>Нажмите «Гостевой вход»</span></li>
-        <li><span>Заполните анкету</span></li>
-        <li><span>Нажмите «Выберите файл и прикрепите платеж»</span></li>
-        <li><span>Нажмите «Сохранить», а затем «Завершить регистрацию»</span></li>
-        <li><span>Запомните или запишите парольное слово</span><span class="ttt"><i> (отображается после нажатия «Сохранить»)</i></span></li>
+        <li><span>Выберите соответствующее мероприятие -> Регистрация -> Гостевой вход</span></li>
+        <li><span>Заполните анкету -> Выберите файл -> Прикрепите платеж -> Сохранить</span></li>
+        <li><span>Нажмите «Завершить регистрацию»</span></li>
+        <li><span>Запомните или запишите парольное слово</span><span class="ttt"><i> (отображается после нажатия «Завершить регистрацию»)</i></span></li>
 
       </ol>
       <div class="frameDiv">

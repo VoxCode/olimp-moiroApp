@@ -1,6 +1,6 @@
 {
-  "name": "olimp-moiroApp",
-  "version": "0.0.0",
+  "name": "olimp-moiro-app",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
