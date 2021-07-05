@@ -1,4 +1,7 @@
-<mat-vertical-stepper [linear]="isLinear">
+
+
+<mat-stepper [linear]="isLinear"   class="example-stepper"
+             [orientation]="(stepperOrientation | async)!">
 
   <!--  Step 1-->
   <mat-step [stepControl]="firstFormGroup">
@@ -36,7 +39,7 @@
       <ng-template matStepLabel>Создание учетной записи/вход в СДО МОИРО</ng-template>
       <h1>Выберите один из пунктов:</h1>
       <mat-radio-button (change)="changeIsReg()">Создать учетную запись</mat-radio-button><br><br>
-      <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br>
+      <mat-radio-button (change)="changeIsAuth()">Войти в Вашу учетную запись</mat-radio-button><br><br>
       <ol *ngIf="isReg && !isAuth">
         <li>Заполните электронную форму<span class="ttt"> <i> (логин и пароль для входа в СДО МОИРО необходимо запомнить!)</i></span></li>
         <i><span>В случае успешной регистрации на указанный электронный адрес высылается ссылка для активации учетной записи</span></i>
@@ -131,4 +134,4 @@
     <div>
     </div>
   </mat-step>
-</mat-vertical-stepper>
+</mat-stepper>

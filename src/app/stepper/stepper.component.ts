@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {BreakpointObserver} from "@angular/cdk/layout";
+import {Observable} from "rxjs";
+import {StepperOrientation} from '@angular/material/stepper';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-stepper',
@@ -32,8 +36,12 @@ export class StepperComponent implements OnInit{
     first: new FormControl(false, Validators.requiredTrue)
   });
 
+  stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private _formBuilder: FormBuilder) {
+
+  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver) {
+    this.stepperOrientation = breakpointObserver.observe('(min-width: 800px)')
+      .pipe(map(({matches}) => matches ? 'horizontal' : 'vertical'));
   }
 
   ngOnInit(): void {
